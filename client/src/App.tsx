@@ -2,6 +2,7 @@ import { Route, Routes, NavLink } from "react-router-dom";
 import ProductsPage from "./pages/ProductsPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import OrdersPage from "./pages/OrdersPage";
+import UsersPage from "./pages/UsersPage";
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
       </nav>
 
       <Routes>
+
+        <Route path="/users" element={<UsersPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
         <Route path="/orders" element={<OrdersPage />} />
