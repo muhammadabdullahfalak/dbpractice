@@ -13,13 +13,23 @@ export const addBook = async (req: Request, res: Response) => {
 
 
 export const updateBook = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const updatedBook = await bookService.updateBook(Number(id), req.body);
-  res.json(updatedBook);
-}
+  try {
+    const { id } = req.params;
+    const updated = await bookService.updateBook(Number(id), req.body);
+    res.json(updated);
+  } catch (err: any) {
+    console.error("❌ updateBook error:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
 
-export const deleteBook = async (req: Request, res: Response) => {  
-  const { id } = req.params;
-  await bookService.deleteBook(Number(id));
-  res.status(204).send();
-}
+export const deleteBook = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    await bookService.deleteBook(Number(id));
+    res.status(204).send();
+  } catch (err: any) {
+    console.error("❌ deleteBook error:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
