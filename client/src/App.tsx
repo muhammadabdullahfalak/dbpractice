@@ -1,25 +1,11 @@
-import { Route, Routes, NavLink } from "react-router-dom";
-import ProductsPage from "./pages/ProductsPage";
-import CategoriesPage from "./pages/CategoriesPage";
-import OrdersPage from "./pages/OrdersPage";
-import UsersPage from "./pages/UsersPage";
+import BooksPage from "./pages/BooksPage";
+import "./App.css";
 
 export default function App() {
   return (
     <div className="p-4">
-      <nav className="mb-4 space-x-4">
-        <NavLink to="/products" className="text-blue-600 hover:underline">Products</NavLink>
-        <NavLink to="/categories" className="text-blue-600 hover:underline">Categories</NavLink>
-        <NavLink to="/orders" className="text-blue-600 hover:underline">Orders</NavLink>
-      </nav>
-
-      <Routes>
-
-        <Route path="/users" element={<UsersPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-      </Routes>
+      <h1 className="text-2xl font-bold mb-4">Book Management</h1>
+      <BooksPage />
     </div>
   );
 }
